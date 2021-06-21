@@ -1,1 +1,3 @@
 # NLW_6-LETMEASK-REACT
+
+Projeto sobre React em Firebase. Futuras atualizações em andamento ...
