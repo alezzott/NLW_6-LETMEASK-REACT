@@ -1,51 +1,74 @@
 import { useHistory } from 'react-router-dom'
+import { FormEvent, useState } from 'react'
 
-import IllustrationImg from '../assets/images/illustration.svg'
-import LogoImg from '../assets/images/logo.svg'
-import GoogleIconImg from '../assets/images/google-icon.svg';
+import illustrationImg from '../assets/images/illustration.svg'
+import logoImg from '../assets/images/logo.svg';
+import googleIconImg from '../assets/images/google-icon.svg';
 
-import '../styles/auth.scss';
+import { database } from '../services/firebase'
+
 import { Button } from '../components/button';
 import { useAuth } from '../hooks/userAuth';
 
-export function Home() {
-    const history = useHistory();
-    const { user, signInWithGoogle } = useAuth()
+import '../styles/auth.scss';
 
-    async function handleCreateRom() {
-        if (!user) {
-            await signInWithGoogle()
-        }
-        
-        history.push('/rooms/new');   
+export function Home() {
+  const history = useHistory();
+  const { user, signInWithGoogle } = useAuth()
+  const [roomCode, setRoomCode] = useState('');
+
+  async function handleCreateRoom() {
+    if (!user) {
+      await signInWithGoogle()
     }
 
-        return (
-            <div id="page-auth">
-                <aside>
-                    <img src={IllustrationImg} alt="ilustração Simbolizando perguntas e respostas" />
-                    <strong>Crie Salas de Q&amp;A Ao-Vivo</strong>
-                    <p>Tire as duvidas da audiência em tempo real</p>
-                </aside>
-                <main>
-                    <div className="main-content">
-                        <img src={LogoImg} alt="Letmeask"/>
-                        <button onClick={handleCreateRom} className="create-room">
-                            <img src={GoogleIconImg} alt="logo da Google" />
-                            Crie sua sala com o Google
-                        </button>
-                        <div className="separator">Ou entre em uma sala</div>
-                        <form>
-                            <input 
-                            type="text"
-                            placeholder="Digite o Codigo da sala"
-                            />
-                            <Button type="submit">
-                            Entrar na Sala
-                            </Button>    
-                        </form>
-                    </div>
-                </main>
-            </div>
-        )
+    history.push('/rooms/new');
+  }
+
+  async function handleJoinRoom(event: FormEvent) {
+    event.preventDefault();
+
+    if (roomCode.trim() === '') {
+            return;
+    }
+
+    const roomRef = await database.ref(`rooms/${roomCode}`).get();
+    if (!roomRef.exists()) {
+        alert('Room does not exists.');
+        return;
+    }
+
+    history.push(`/rooms/${roomCode}`);
+    }
+
+  return (
+    <div id="page-auth">
+      <aside>
+        <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
+        <strong>Crie salas de Q&amp;A ao-vivo</strong>
+        <p>Tire as dúvidas da sua audiência em tempo-real</p>
+      </aside>
+      <main>
+        <div className="main-content">
+          <img src={logoImg} alt="Letmeask" />
+          <button onClick={handleCreateRoom} className="create-room">
+            <img src={googleIconImg} alt="Logo do Google" />
+            Crie sua sala com o Google
+          </button>
+          <div className="separator">ou entre em uma sala</div>
+          <form onSubmit={handleJoinRoom}>
+            <input 
+              type="text"
+              placeholder="Digite o código da sala"
+              onChange={event => setRoomCode(event.target.value)}
+              value={roomCode}
+            />
+            <Button type="submit">
+              Entrar na sala
+            </Button>
+          </form>
+        </div>
+      </main>
+    </div>
+  )
 }
