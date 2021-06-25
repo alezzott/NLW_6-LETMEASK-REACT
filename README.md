@@ -50,7 +50,7 @@ $ yarn start
 
 ![Alezzo](https://raw.githubusercontent.com/alezzott/letmeask/main/src/assets/images/banner.png)
 
-<h3>Made By <a href="https://github.com/alezzott/">Alezzo<a/>  :coffe:
+<h3>:coffe: Made By <a href="https://github.com/alezzott/">Alezzo<a/>
 
 
 
