@@ -30,7 +30,6 @@
 
 ### 🎲 Instalation
 
-```bash
 # Clone this repository
 $ git clone <https://github.com/alezzott/letmeask>
 
@@ -46,7 +45,6 @@ $ yarn start
 
 
 # The server will start at the port:3000 <http://localhost:3000>
-```
 
 ![Alezzo](https://raw.githubusercontent.com/alezzott/letmeask/main/src/assets/images/banner.png)
 
