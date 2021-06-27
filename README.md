@@ -48,8 +48,9 @@ $ yarn start
 
 ![Alezzo](https://raw.githubusercontent.com/alezzott/letmeask/main/src/assets/images/banner.png)
 
-<h4 align="center">Made By <a href="https://github.com/alezzott/">Alezzo<a/></h4>
-
+<h4 align="center">Made By <a href="https://github.com/alezzott/"> ☕ Alezzo<a/><a href="mailto:faustino.alex@outlook.com"> 💻 Contact-me</a>
+</h4> 
+	
 
 
 
