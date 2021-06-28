@@ -4,15 +4,18 @@ import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
+import dark from "../assets/images/logout_black_24dp.svg";
 
-import { Button } from '../components/button';
+
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
 // import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../services/useRoom'
 import { database } from '../services/firebase';
 
+
 import '../styles/room.scss';
+
 
 type RoomParams = {
   id: string;
@@ -59,7 +62,7 @@ export function AdminRoom() {
           <img src={logoImg} alt="Letmeask" />
           <div>
             <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
+            <img src={dark} onClick={handleEndRoom} alt="Dark mode" />
           </div>
         </div>
       </header>
