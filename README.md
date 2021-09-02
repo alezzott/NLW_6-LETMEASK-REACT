@@ -16,13 +16,14 @@
 
 :computer: TECNHOLOGY:
 
-<p align="center">
+<h3><p align="center">
  <a href="https://reactjs.org/">React</a> •
  <a href="https://www.typescriptlang.org/docs/">TypeScript</a> • 
  <a href="https://www.npmjs.com/package/node-sass">Node-Sass</a> • 
  <a href="https://sass-lang.com/">Sass</a> • 
  <a href="https://reactrouter.com/web/guides/quick-start">React Router DOM</a> • 
-</p>
+<a href="https://github.com/JedWatson/classnames#readme">ClassNames</a>
+</h3></p>
 
 <h4 align="center"> 
 	🚧  Under Construction...  🚧
@@ -30,21 +31,27 @@
 
 ### 🎲 Instalation
 
-# Clone this repository
+### Clone this repository
+~~~html
 $ git clone <https://github.com/alezzott/letmeask>
+~~~~
 
-# Access the project folder in the terminal/cmd
+### Access the project folder in the terminal/cmd
+~~~html
 $ cd letmeask
+~~~~
 
-# Install Yarn and check Yarn version:
-$ npm install --global yarn
-$ yarn -v
+### Install Yarn and check Yarn version:
+~~~html
+$ npm install --global yarn $ yarn -v
+~~~~
 
-# Start yarn
+### Start yarn
+~~~html
 $ yarn start
+~~~~
 
-
-# The server will start at the port:3000 <http://localhost:3000>
+## The server will start at the port:3000 <http://localhost:3000>
 
 ![Alezzo](https://raw.githubusercontent.com/alezzott/letmeask/main/src/assets/images/banner.png)
 
